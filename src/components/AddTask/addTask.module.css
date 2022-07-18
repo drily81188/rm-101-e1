@@ -1,3 +1,26 @@
 .addTask {
   /* Sample */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.addTask input {
+  background-color: transparent;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.addTask button {
+  background-color: white;
+  transition: 0.3s;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.addTask button:hover {
+  background-color: black;
+  color: wheat;
 }

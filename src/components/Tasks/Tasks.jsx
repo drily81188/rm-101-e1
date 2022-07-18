@@ -1,15 +1,21 @@
 import React from "react";
 import styles from "./tasks.module.css";
+import { Task } from "../Task";
+import { useContext } from "react";
+import { Context } from "../../App";
+
 
 const Tasks = () => {
-  // NOTE: do not delete `data-testid` key value pair
+  const { todos } = useContext(Context)
   return (
     <>
-      <ul data-testid="tasks" className={styles.tasks}>
-        {/* Task List */}
+      <ul todos-testid="tasks" className={styles.tasks}>
+        {todos.map((e) => (
+          <Task key={e.id} task={e} />
+        ))}
       </ul>
-      <div data-testid="tasks-empty" className={styles.empty}>
-        {/* Show when No Tasks are present */}
+      <div todos-testid="tasks-empty" className={styles.empty}>
+        {todos.length !== 0 ? null : "Empty list Add a new task above"}
       </div>
     </>
   );

@@ -1,5 +1,8 @@
 .tasks {
   /* sample */
+  display: grid;
+  justify-content: space-between;
+  /* margin-left: 33px; */
 }
 
 .empty {

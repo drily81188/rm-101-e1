@@ -1,16 +1,21 @@
 import React from "react";
+import { useContext } from "react";
+import { Context } from "../../App";
 import styles from "./taskHeader.module.css";
 
 const TaskHeader = () => {
-  // sample values to be replaced
-  let totalTask = 0;
-  let unCompletedTask = 0;
+  const { todos } = useContext(Context)
+  let total = todos.length;
+  let left = 0;
 
-  // NOTE: do not delete `data-testid` key value pair
+  todos.filter((task) => {
+    return task.done === false ? left++ : null
+  });
+
   return (
     <div data-testid="task-header" className={styles.taskHeader}>
-      <b data-testid="header-remaining-task">{unCompletedTask}</b>
-      <b data-testid="header-total-task">{totalTask}</b>
+      <b data-testid="header-remaining-task">You have {left} of </b>
+      <b data-testid="header-total-task">{total} tasks remaining</b>
     </div>
   );
 };
